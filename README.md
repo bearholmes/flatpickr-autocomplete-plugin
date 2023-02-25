@@ -1,4 +1,4 @@
-# flatpickr Autocomplete Plugin
+# flatpickr-autocomplete-plugin
 
 You can control the autocomplete property on the flatpickr element.
 
@@ -9,6 +9,9 @@ You can control the autocomplete property on the flatpickr element.
 ```
 
 ```javascript
+import autocompletePlugin from 'flatpickr-autocomplete-plugin';
+
+// flatpickr config
 {
     "plugins": [new autocompletePlugin({})]
 }
