@@ -16,3 +16,7 @@ import autocompletePlugin from 'flatpickr-autocomplete-plugin';
     "plugins": [new autocompletePlugin({})]
 }
 ```
+
+##Compatibility
+
+flatpickr 4
