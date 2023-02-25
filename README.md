@@ -13,7 +13,7 @@ import autocompletePlugin from 'flatpickr-autocomplete-plugin';
 
 // flatpickr config
 {
-    "plugins": [new autocompletePlugin({})]
+    "plugins": [new autocompletePlugin()]
 }
 ```
 

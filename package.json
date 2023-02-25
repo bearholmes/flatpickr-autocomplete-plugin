@@ -1,6 +1,6 @@
 {
   "name": "flatpickr-autocomplete-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "flatpickr plugin",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bearholmes/flatpickrAutocompletePlugin.git"
+    "url": "git+https://github.com/bearholmes/flatpickr-autocomplete-plugin.git"
   },
   "author": {
     "name": "bearholmes",
@@ -17,9 +17,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/bearholmes/flatpickrAutocompletePlugin/issues"
+    "url": "https://github.com/bearholmes/flatpickr-autocomplete-plugin/issues"
   },
-  "homepage": "https://github.com/bearholmes/flatpickrAutocompletePlugin#readme",
+  "homepage": "https://github.com/bearholmes/flatpickr-autocomplete-plugin#readme",
   "devDependencies": {
     "prettier": "^2.8.4"
   }
