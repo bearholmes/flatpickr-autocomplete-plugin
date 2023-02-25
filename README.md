@@ -17,6 +17,6 @@ import autocompletePlugin from 'flatpickr-autocomplete-plugin';
 }
 ```
 
-##Compatibility
+## Compatibility
 
 flatpickr 4
