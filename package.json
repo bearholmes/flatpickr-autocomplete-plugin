@@ -1,6 +1,6 @@
 {
   "name": "flatpickr-autocomplete-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "flatpickr plugin",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",

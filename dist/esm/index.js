@@ -3,14 +3,18 @@ function autocompletePlugin() {
     return {
       onReady: function () {
         setTimeout(function () {
-          var value = fp.input.getAttribute('autocomplete');
-          if (!value) return;
-          if (fp.mobileInput) {
-            fp.input.removeAttribute('autocomplete');
-            fp.mobileInput.autocomplete = value;
-          } else if (fp.altInput) {
-            fp.input.removeAttribute('autocomplete');
-            fp.altInput.autocomplete = value;
+          var els = ['autocomplete', 'aria-autocomplete'];
+          for (var i = 0; i < els.length; i++) {
+            var value = fp.input.getAttribute(els[i]);
+            if (value) {
+              var name = els[i];
+              fp.input.removeAttribute(name);
+              if (fp.mobileInput) {
+                fp.mobileInput.setAttribute(name, value);
+              } else if (fp.altInput) {
+                fp.altInput.setAttribute(name, value);
+              }
+            }
           }
           fp.loadedPlugins.push('autocompletePlugin');
         }, 10);

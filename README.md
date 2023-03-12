@@ -9,11 +9,11 @@ You can control the autocomplete property on the flatpickr element.
 ```
 
 ```javascript
-import autocompletePlugin from 'flatpickr-autocomplete-plugin';
+import AutocompletePlugin from 'flatpickr-autocomplete-plugin';
 
 // flatpickr config
 {
-    "plugins": [new autocompletePlugin()]
+    "plugins": [new AutocompletePlugin()]
 }
 ```
 
