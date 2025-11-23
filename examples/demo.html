@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flatpickr Autocomplete Plugin - Demo</title>
+
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem;
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      header {
+        text-align: center;
+        color: white;
+        margin-bottom: 3rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      .subtitle {
+        font-size: 1.1rem;
+        opacity: 0.9;
+        font-weight: 300;
+      }
+
+      .demo-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .demo-card h2 {
+        color: #333;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .demo-card h2::before {
+        content: '🎯';
+        font-size: 1.3rem;
+      }
+
+      .demo-card p {
+        color: #666;
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #333;
+        font-size: 0.9rem;
+      }
+
+      input[type='text'] {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+
+      input[type='text']:focus {
+        outline: none;
+        border-color: #667eea;
+        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+      }
+
+      .code-block {
+        background: #f5f7fa;
+        border: 1px solid #e1e8ed;
+        border-radius: 8px;
+        padding: 1rem;
+        margin-top: 1rem;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 0.85rem;
+        overflow-x: auto;
+      }
+
+      .code-block pre {
+        margin: 0;
+        color: #333;
+      }
+
+      .badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        background: #667eea;
+        color: white;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+      }
+
+      .badge.success {
+        background: #10b981;
+      }
+
+      .badge.warning {
+        background: #f59e0b;
+      }
+
+      .info-box {
+        background: #eff6ff;
+        border-left: 4px solid #3b82f6;
+        padding: 1rem;
+        margin: 1rem 0;
+        border-radius: 4px;
+      }
+
+      .info-box strong {
+        color: #1e40af;
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .info-box p {
+        margin: 0;
+        color: #1e40af;
+      }
+
+      footer {
+        text-align: center;
+        color: white;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      footer a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        border-bottom: 2px solid white;
+        transition: opacity 0.3s ease;
+      }
+
+      footer a:hover {
+        opacity: 0.8;
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 1rem;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .demo-card {
+          padding: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Flatpickr Autocomplete Plugin</h1>
+        <p class="subtitle">
+          Control autocomplete behavior on your date picker inputs
+        </p>
+      </header>
+
+      <!-- Demo 1: Autocomplete Off -->
+      <div class="demo-card">
+        <h2>
+          Autocomplete Disabled
+          <span class="badge success">autocomplete="off"</span>
+        </h2>
+        <p>
+          This date picker has autocomplete disabled. The plugin automatically
+          transfers the <code>autocomplete="off"</code> attribute to the visible
+          input field.
+        </p>
+
+        <div class="form-group">
+          <label for="datepicker1">Select a date (autocomplete off)</label>
+          <input
+            type="text"
+            id="datepicker1"
+            placeholder="Click to select a date"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="code-block">
+          <pre>
+&lt;input
+  id="datepicker1"
+  autocomplete="off"
+&gt;
+
+&lt;script&gt;
+flatpickr('#datepicker1', {
+  plugins: [new autocompletePlugin()]
+});
+&lt;/script&gt;</pre
+          >
+        </div>
+      </div>
+
+      <!-- Demo 2: Aria Autocomplete -->
+      <div class="demo-card">
+        <h2>
+          Accessibility Enhanced
+          <span class="badge warning">aria-autocomplete="none"</span>
+        </h2>
+        <p>
+          This example demonstrates the plugin's support for accessibility
+          attributes. Both <code>autocomplete</code> and
+          <code>aria-autocomplete</code> are properly transferred.
+        </p>
+
+        <div class="form-group">
+          <label for="datepicker2">Select a date (with ARIA)</label>
+          <input
+            type="text"
+            id="datepicker2"
+            placeholder="Click to select a date"
+            autocomplete="off"
+            aria-autocomplete="none"
+          />
+        </div>
+
+        <div class="code-block">
+          <pre>
+&lt;input
+  id="datepicker2"
+  autocomplete="off"
+  aria-autocomplete="none"
+&gt;
+
+&lt;script&gt;
+flatpickr('#datepicker2', {
+  plugins: [new autocompletePlugin()]
+});
+&lt;/script&gt;</pre
+          >
+        </div>
+      </div>
+
+      <!-- Demo 3: Alternative Input -->
+      <div class="demo-card">
+        <h2>
+          Alternative Input Mode
+          <span class="badge">altInput enabled</span>
+        </h2>
+        <p>
+          When using flatpickr's <code>altInput</code> option, the plugin
+          intelligently transfers autocomplete attributes to the alternative
+          input field.
+        </p>
+
+        <div class="form-group">
+          <label for="datepicker3">Select a date (alternative input)</label>
+          <input
+            type="text"
+            id="datepicker3"
+            placeholder="Select a date"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="code-block">
+          <pre>
+&lt;input
+  id="datepicker3"
+  autocomplete="off"
+&gt;
+
+&lt;script&gt;
+flatpickr('#datepicker3', {
+  altInput: true,
+  altFormat: "F j, Y",
+  dateFormat: "Y-m-d",
+  plugins: [new autocompletePlugin()]
+});
+&lt;/script&gt;</pre
+          >
+        </div>
+      </div>
+
+      <!-- Demo 4: Date Range -->
+      <div class="demo-card">
+        <h2>
+          Date Range Picker
+          <span class="badge">mode="range"</span>
+        </h2>
+        <p>
+          The plugin works seamlessly with flatpickr's range mode and other
+          advanced features.
+        </p>
+
+        <div class="form-group">
+          <label for="datepicker4">Select date range</label>
+          <input
+            type="text"
+            id="datepicker4"
+            placeholder="Select date range"
+            autocomplete="off"
+          />
+        </div>
+
+        <div class="code-block">
+          <pre>
+&lt;input
+  id="datepicker4"
+  autocomplete="off"
+&gt;
+
+&lt;script&gt;
+flatpickr('#datepicker4', {
+  mode: "range",
+  dateFormat: "Y-m-d",
+  plugins: [new autocompletePlugin()]
+});
+&lt;/script&gt;</pre
+          >
+        </div>
+      </div>
+
+      <!-- Info Box -->
+      <div class="info-box">
+        <strong>💡 Why use this plugin?</strong>
+        <p>
+          Browser autocomplete can interfere with date pickers, showing
+          irrelevant suggestions. This plugin ensures your autocomplete settings
+          are applied to the actual visible input field, not just the hidden
+          one, giving you full control over the user experience.
+        </p>
+      </div>
+
+      <footer>
+        <p>
+          Made with ❤️ by
+          <a href="https://github.com/bearholmes" target="_blank">bearholmes</a>
+        </p>
+        <p style="margin-top: 0.5rem; opacity: 0.8">
+          <a
+            href="https://github.com/bearholmes/flatpickr-autocomplete-plugin"
+            target="_blank"
+          >
+            View on GitHub
+          </a>
+        </p>
+      </footer>
+    </div>
+
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <!-- Plugin (use local build in development, CDN in production) -->
+    <script src="../dist/index.js"></script>
+
+    <script>
+      // Demo 1: Basic autocomplete off
+      flatpickr('#datepicker1', {
+        plugins: [new autocompletePlugin()],
+      });
+
+      // Demo 2: With ARIA attributes
+      flatpickr('#datepicker2', {
+        plugins: [new autocompletePlugin()],
+      });
+
+      // Demo 3: Alternative input
+      flatpickr('#datepicker3', {
+        altInput: true,
+        altFormat: 'F j, Y',
+        dateFormat: 'Y-m-d',
+        plugins: [new autocompletePlugin()],
+      });
+
+      // Demo 4: Date range
+      flatpickr('#datepicker4', {
+        mode: 'range',
+        dateFormat: 'Y-m-d',
+        plugins: [new autocompletePlugin()],
+      });
+
+      // Log plugin initialization
+      console.log('Flatpickr Autocomplete Plugin Demo loaded successfully!');
+      console.log(
+        'Open DevTools to inspect the input elements and see how attributes are transferred.',
+      );
+    </script>
+  </body>
+</html>
