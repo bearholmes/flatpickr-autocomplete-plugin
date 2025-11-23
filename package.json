@@ -1,16 +1,38 @@
 {
   "name": "flatpickr-autocomplete-plugin",
-  "version": "1.0.3",
-  "description": "flatpickr plugin",
+  "version": "1.0.4",
+  "description": "A lightweight flatpickr plugin to control autocomplete attributes on date picker inputs",
   "main": "dist/index.js",
   "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "format": "prettier . --write"
+    "build": "npm run clean && rollup -c",
+    "dev": "rollup -c -w",
+    "clean": "rm -rf dist",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "type-check": "tsc --noEmit",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "eslint src --ext .ts",
+    "prepublishOnly": "npm run build && npm test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bearholmes/flatpickr-autocomplete-plugin.git"
   },
+  "keywords": [
+    "flatpickr",
+    "plugin",
+    "autocomplete",
+    "datepicker",
+    "accessibility",
+    "a11y"
+  ],
   "author": {
     "name": "bearholmes",
     "email": "bearholmes@gmail.com"
@@ -20,10 +42,25 @@
     "url": "https://github.com/bearholmes/flatpickr-autocomplete-plugin/issues"
   },
   "homepage": "https://github.com/bearholmes/flatpickr-autocomplete-plugin#readme",
+  "peerDependencies": {
+    "flatpickr": "^4.6.0"
+  },
   "devDependencies": {
-    "prettier": "^2.8.4"
+    "@rollup/plugin-replace": "^6.0.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/jest": "^29.5.11",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^3.1.1",
+    "rollup": "^4.9.4",
+    "ts-jest": "^29.1.1",
+    "tslib": "^2.6.2",
+    "typescript": "5.3.3"
   },
   "dependencies": {
-    "flatpickr": "^4.6.13"
+    "flatpickr": "^4.6.0"
   }
 }
